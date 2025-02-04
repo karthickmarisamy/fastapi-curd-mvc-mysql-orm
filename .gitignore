@@ -1,2 +1,5 @@
 fast-api-3.13/
-**/__pycache__/
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
