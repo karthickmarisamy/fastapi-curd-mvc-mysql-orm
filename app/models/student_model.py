@@ -10,6 +10,7 @@ class Personal_detail(base_model):
     id = Column(CHAR(30), primary_key=True, default=lambda: str(uuid.uuid4()))
     name = Column(String(100), nullable=False)
     phone = Column(String(12), nullable=False)
+    email = Column(String(50), nullable=False)
     age = Column(Integer, nullable=False)
     created_at = Column(DateTime, default=datetime.datetime.now)
     updated_at = Column(DateTime, nullable=True)
