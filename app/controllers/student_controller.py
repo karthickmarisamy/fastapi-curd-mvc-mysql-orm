@@ -4,6 +4,7 @@ from schemas.student_schema import StudentSchema
 from db.database import get_db
 from models.student_model import Personal_detail
 from utils.response_wrapper import api_response
+from datetime import datetime
 
 router = APIRouter()
 
@@ -36,6 +37,7 @@ async def update_student_info(student_id: str, student:StudentSchema, db: Sessio
     if not existing_record:
         raise HTTPException(status_code = 404, detail = "Student id is not found")        
     else:
+        student.updated_on = datetime.now()
         for field, value in student.dict(exclude_unset= True).items():
             setattr(existing_record, field, value)
         db.commit()
